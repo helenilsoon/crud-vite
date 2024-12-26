@@ -1,0 +1,63 @@
+ul{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    background-color: black; ;
+    height: 10vh;
+    align-items: center;
+}
+li{
+    color: white;
+    position: relative;
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+li a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+ul ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style-type:none ;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    top: 35px;    
+    background-color: slategray;
+}
+ul ul li{
+ 
+    cursor: pointer;
+    height: 45px;
+    width: 100%;
+    padding: 10px;
+    
+}
+ul ul li:hover{
+    background-color: black;
+    color: white;
+}
+.seta{
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+.seta-icon {
+   transition: transform 0.3s ease;
+    cursor: pointer;
+     
+    }
+ .open {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    
+	}
