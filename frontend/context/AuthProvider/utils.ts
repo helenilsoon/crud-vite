@@ -33,7 +33,7 @@ export async function getAllUser(){
       
        return request.data
     }catch(error){
-        console.log("Error em obter usuarios da api",error);
+        console.error("Error em obter usuarios da api",error);
     }
 }
 
@@ -47,5 +47,27 @@ export async function registerUser(data:IRegisterUser){
             message:"Erro em cadastrar usuario",
              Error: error.response.data
         }
+    }
+}
+
+export async function recoverUser(id:string){
+    try{
+        const response = await Api.get(`user/${id}`)
+        console.log(response.data);
+
+    }catch(error){
+        console.log("Error em obter usuarios da api",error);
+    }
+}
+export async function deleteUser(id:string){
+    try{
+        const response = await Api.delete(`user/${id}`)
+         
+
+    }catch(error:any){
+        console.error("func deleteUser: Error ao deletar usuario",{
+            error:error.response.data,
+            status:error.response.status}
+        );
     }
 }

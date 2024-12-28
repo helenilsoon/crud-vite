@@ -4,6 +4,7 @@
  import { TableProps } from "antd";
  import './listaUser.css';
 import { IRegisterUser } from "../../../context/AuthProvider/types";
+import { Link } from "./Link";
 
 
 interface User {
@@ -51,6 +52,8 @@ type AddUserProps ={
         return <p>Não há usuários cadastrados</p>
     }
 
+    
+
     const columns : TableProps<User>['columns'] =[
           {
             title:'Name',
@@ -64,18 +67,20 @@ type AddUserProps ={
             key:'email',
             
           },
-          {
-            title:'Password',
-            dataIndex:'password',
-            key:'password',
+        //   {
+        //     title:'Password',
+        //     dataIndex:'password',
+        //     key:'password',
             
-          },{
+        //   },
+        {
             title:'Ação',
             key:'action',
             render:(_,record)=>(
                 <Space size="middle">
-                <a>atualizar</a>
-                <a>Delete</a>
+              
+                <Link url="atualizar" name="Atualizar" id={record._id}/>
+                
 
                 </Space>
             ),
