@@ -41,11 +41,23 @@ export async function getAllUser(){
 export async function registerUser(data:IRegisterUser){
     try{    
         const response = await Api.post('register',data);
-        return response.data
-    }catch(error:any){
         return{
-            message:"Erro em cadastrar usuario",
-             Error: error.response.data
+            message:response ? response.data:"Erro Desconhecido",
+             
+             status: response.status,
+             type:"success"
+
+        }
+    }catch(error:any){
+        
+        console.error("Erro ao cadastrar usuario:",error)
+
+        return{
+            message:error.response ? error.response.data:"Erro Desconhecido",
+             errorMessage: error.message,
+             errorStatus: error.status,
+             type:"error"
+
         }
     }
 }
